@@ -1,17 +1,17 @@
-import { StrictMode } from 'react';
-import { createRoot } from 'react-dom/client';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import App from './App.jsx';
-import ShowDetail from './ShowDetail.jsx';
-import './index.css';
+import { createRoot } from 'react-dom/client';
+import App from './App';
+import ShowDetail from './ShowDetail';
+import People from './People';
+import Header from './Header';
 
 createRoot(document.getElementById('root')).render(
-  <StrictMode>
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<App />} />
-        <Route path="/show/:id" element={<ShowDetail />} />
-      </Routes>
-    </BrowserRouter>
-  </StrictMode>
+  <BrowserRouter>
+    <Header />
+    <Routes>
+      <Route path="/" element={<App />} />
+      <Route path="/people" element={<People />} />
+      <Route path="/show/:id" element={<ShowDetail />} />
+    </Routes>
+  </BrowserRouter>
 );

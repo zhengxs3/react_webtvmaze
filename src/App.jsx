@@ -7,8 +7,7 @@ function App() {
   const [results, setResults] = useState([]);
   const [genreOptions, setGenreOptions] = useState([]);
   const [genre, setGenre] = useState('All');
-
-  const navigate = useNavigate(); // 👈 启用跳转
+  const navigate = useNavigate();
 
   useEffect(() => {
     loadInitialData();
@@ -58,7 +57,6 @@ function App() {
     <div style={{ padding: '2rem', maxWidth: '1200px', margin: '0 auto' }}>
       <h1 style={{ textAlign: 'center', marginBottom: '2rem' }}>📺 Rechercher une série</h1>
 
-      {/* 搜索栏 */}
       <div style={{ marginBottom: '1rem', textAlign: 'center' }}>
         <input
           type="text"
@@ -82,35 +80,32 @@ function App() {
       </div>
 
       {/* 分类按钮 */}
-      {genreOptions.length > 0 && (
-        <div style={{
-          display: 'flex',
-          flexWrap: 'wrap',
-          justifyContent: 'center',
-          gap: '0.5rem',
-          marginBottom: '2rem'
-        }}>
-          {genreOptions.map((g) => (
-            <button
-              key={g}
-              onClick={() => setGenre(g)}
-              style={{
-                padding: '0.5rem 1rem',
-                borderRadius: '5px',
-                border: '1px solid #ccc',
-                backgroundColor: genre === g ? '#1976d2' : '#f0f0f0',
-                color: genre === g ? 'white' : 'black',
-                fontWeight: genre === g ? 'bold' : 'normal',
-                cursor: 'pointer'
-              }}
-            >
-              {g}
-            </button>
-          ))}
-        </div>
-      )}
+      <div style={{
+        display: 'flex',
+        flexWrap: 'wrap',
+        justifyContent: 'center',
+        gap: '0.5rem',
+        marginBottom: '2rem'
+      }}>
+        {genreOptions.map((g) => (
+          <button
+            key={g}
+            onClick={() => setGenre(g)}
+            style={{
+              padding: '0.5rem 1rem',
+              borderRadius: '5px',
+              border: '1px solid #ccc',
+              backgroundColor: genre === g ? '#1976d2' : '#f0f0f0',
+              color: genre === g ? 'white' : 'black',
+              fontWeight: genre === g ? 'bold' : 'normal',
+              cursor: 'pointer'
+            }}
+          >
+            {g}
+          </button>
+        ))}
+      </div>
 
-      {/* 剧集卡片 */}
       <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1rem', justifyContent: 'center' }}>
         {filteredResults.map((item) => {
           const show = item.show;
@@ -133,15 +128,9 @@ function App() {
                 cursor: 'pointer'
               }}
             >
-              <img
-                src={imageUrl}
-                alt={show.name}
-                style={{ width: '100%', height: '250px', objectFit: 'cover' }}
-              />
+              <img src={imageUrl} alt={show.name} style={{ width: '100%', height: '250px', objectFit: 'cover' }} />
               <div style={{ background: '#c4e5fa', padding: '0.5rem' }}>
-                <h3 style={{ fontSize: '1rem', margin: '0 0 0.5rem', fontWeight: 'bold' }}>
-                  {show.name}
-                </h3>
+                <h3 style={{ fontSize: '1rem', margin: '0 0 0.5rem', fontWeight: 'bold' }}>{show.name}</h3>
                 <p style={{ margin: 0 }}>⭐ {rating}</p>
               </div>
             </div>
