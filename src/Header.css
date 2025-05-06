@@ -1,0 +1,70 @@
+/* Conteneur principal de l'en-tête */
+.header-container {
+  display: flex; /* Affichage en ligne */
+  justify-content: space-between; /* Espace égal entre les éléments */
+  align-items: center; /* Centrage vertical */
+  flex-wrap: wrap; /* Retour à la ligne sur petits écrans */
+  gap: 1rem; /* Espace entre les éléments */
+  background-color: #f6a6df; /* Couleur de fond (jaune clair) */
+  padding: 1rem; /* Marge intérieure */
+}
+
+/* Logo */
+.logo {
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+  white-space: nowrap; /* 防止文字换行 */
+  flex-shrink: 0; /* 不要被压缩 */
+}
+
+
+/* Conteneur de la barre de recherche */
+.search-box {
+  display: flex;
+  flex-grow: 1; /* Prend tout l'espace disponible */
+  min-width: 250px; /* Largeur minimale */
+}
+
+/* Champ de texte dans la recherche */
+.search-box input {
+  flex: 1; /* Prend tout l’espace restant */
+  padding: 0.5rem; /* Espacement intérieur */
+  font-size: 1rem; /* Taille du texte */
+  margin-right: 1rem; /* Espace à droite du champ */
+}
+
+/* Bouton de recherche */
+.search-box button {
+  width: 130px;
+  padding: 0.5rem;
+  background-color: #90caf9; /* Bleu clair */
+  font-weight: bold;
+  border: none;
+  border-radius: 5px; /* Coins arrondis */
+  cursor: pointer; /* Curseur pointeur au survol */
+}
+
+/* Liens de navigation (Accueil, Acteurs) */
+.nav-links {
+  display: flex;
+  gap: 0.5rem; /* Espace entre les liens */
+}
+
+/* Adaptation mobile : largeur <= 600px */
+@media (max-width: 600px) {
+  .header-container {
+    flex-direction: column; /* Affichage en colonne */
+    align-items: stretch; /* Étirement horizontal */
+  }
+
+  .search-box {
+    width: 100%; /* Prend toute la largeur */
+  }
+
+  .nav-links {
+    justify-content: flex-start; /* Alignement à gauche */
+    width: 100%;
+    margin-top: 0.5rem;
+  }
+}
